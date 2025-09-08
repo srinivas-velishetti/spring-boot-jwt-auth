@@ -32,7 +32,7 @@ You need two environments: **DEV** and **SIT**.
 
 ### 🔹 Execution Flow
 
-Signup
+#Signup
 
 AuthController.signup() receives request.
 
@@ -42,7 +42,7 @@ User saved into DB.
 
 Response → User registered successfully.
 
-Login
+#Login
 
 AuthController.login() receives request.
 
@@ -52,7 +52,7 @@ If valid → JWT generated via JwtTokenProvider.
 
 Token returned in response.
 
-Secured API (/users/me)
+#Secured API (/users/me)
 
 Request intercepted by JwtAuthenticationFilter.
 
