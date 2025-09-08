@@ -30,6 +30,40 @@ You need two environments: **DEV** and **SIT**.
 
 ---
 
+### 🔹 Execution Flow
+
+Signup
+
+AuthController.signup() receives request.
+
+Password is encrypted with BCryptPasswordEncoder.
+
+User saved into DB.
+
+Response → User registered successfully.
+
+Login
+
+AuthController.login() receives request.
+
+Credentials validated using AuthenticationManager.
+
+If valid → JWT generated via JwtTokenProvider.
+
+Token returned in response.
+
+Secured API (/users/me)
+
+Request intercepted by JwtAuthenticationFilter.
+
+JWT extracted from header.
+
+Token validated (signature, expiry).
+
+If valid → user set in SecurityContext.
+
+Controller returns authenticated user.
+
 ## 🔹 2. Import Collection
 
 Use the following Postman collection JSON:
@@ -183,35 +217,3 @@ Use the following Postman collection JSON:
 }
 
 
-🔹 Execution Flow
-Signup
-
-AuthController.signup() receives request.
-
-Password is encrypted with BCryptPasswordEncoder.
-
-User saved into DB.
-
-Response → User registered successfully.
-
-Login
-
-AuthController.login() receives request.
-
-Credentials validated using AuthenticationManager.
-
-If valid → JWT generated via JwtTokenProvider.
-
-Token returned in response.
-
-Secured API (/users/me)
-
-Request intercepted by JwtAuthenticationFilter.
-
-JWT extracted from header.
-
-Token validated (signature, expiry).
-
-If valid → user set in SecurityContext.
-
-Controller returns authenticated user.
